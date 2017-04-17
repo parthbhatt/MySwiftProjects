@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LMv-a9-bOt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Products-->
+        <scene sceneID="Y59-nI-Z72">
+            <objects>
+                <navigationController id="553-4q-PFu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Products" image="Products-icon" id="xP1-w2-cuy"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rZ0-Xm-JfQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9Xu-1P-SQd" kind="relationship" relationship="rootViewController" id="oy8-8j-fH1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tK-RR-GNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3265" y="-658"/>
+        </scene>
+        <!--Products View Controller-->
+        <scene sceneID="HzR-TW-MHL">
+            <objects>
+                <viewController id="9Xu-1P-SQd" customClass="ProductsViewController" customModule="GoodWatches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0VV-dP-Fwj"/>
+                        <viewControllerLayoutGuide type="bottom" id="uSc-Qs-zeA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g0d-VA-yk2">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QkI-cT-mIt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productTableViewCell" id="4LJ-UI-OST">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4LJ-UI-OST" id="ize-rU-vUM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="QkI-cT-mIt" secondAttribute="trailing" id="GsK-Rl-RX1"/>
+                            <constraint firstItem="QkI-cT-mIt" firstAttribute="top" secondItem="0VV-dP-Fwj" secondAttribute="bottom" id="YJ3-ir-l3G"/>
+                            <constraint firstItem="uSc-Qs-zeA" firstAttribute="top" secondItem="QkI-cT-mIt" secondAttribute="bottom" id="fG0-bE-cCy"/>
+                            <constraint firstItem="QkI-cT-mIt" firstAttribute="leading" secondItem="g0d-VA-yk2" secondAttribute="leading" id="s57-fd-zWg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oWl-in-MJS"/>
+                    <connections>
+                        <outlet property="tblProducts" destination="QkI-cT-mIt" id="jdu-Vb-sbR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fff-sF-46a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2515" y="-1749"/>
+        </scene>
+        <!--Contact Us-->
+        <scene sceneID="59y-gK-yyd">
+            <objects>
+                <navigationController id="j6n-9m-JGO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contact Us" image="Contactus-icon" id="CPn-VZ-vXE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Iqf-7Q-bSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="whM-BQ-lXA" kind="relationship" relationship="rootViewController" id="a5y-OB-lGa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vBe-jm-vfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3282" y="56"/>
+        </scene>
+        <!--Contact Us View Controller-->
+        <scene sceneID="j21-QQ-5qs">
+            <objects>
+                <viewController id="whM-BQ-lXA" customClass="ContactUsViewController" customModule="GoodWatches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T6b-Dy-0Ma"/>
+                        <viewControllerLayoutGuide type="bottom" id="RaX-OY-rYD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eQa-VX-uBt">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-icon" translatesAutoresizingMaskIntoConstraints="NO" id="da9-Ht-KbJ">
+                                <rect key="frame" x="150" y="8" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="QIi-x4-M6F"/>
+                                    <constraint firstAttribute="width" constant="75" id="Qb9-p2-vdb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Watches is one of the well know sellers of branded watches like Hublot, Cartier, Rollex, Omega, etc. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18d-hi-aGP">
+                                <rect key="frame" x="16" y="91" width="343" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="jGT-9F-Hcg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="18d-hi-aGP" secondAttribute="trailing" constant="16" id="LNs-1Q-mrW"/>
+                            <constraint firstItem="18d-hi-aGP" firstAttribute="top" secondItem="da9-Ht-KbJ" secondAttribute="bottom" constant="8" id="aHX-aQ-4Hb"/>
+                            <constraint firstItem="da9-Ht-KbJ" firstAttribute="centerX" secondItem="eQa-VX-uBt" secondAttribute="centerX" id="f3v-n9-THd"/>
+                            <constraint firstItem="18d-hi-aGP" firstAttribute="leading" secondItem="eQa-VX-uBt" secondAttribute="leading" constant="16" id="lK1-kE-xmO"/>
+                            <constraint firstItem="da9-Ht-KbJ" firstAttribute="top" secondItem="T6b-Dy-0Ma" secondAttribute="bottom" constant="8" id="nwz-jf-TWH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gps-Tj-End"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xt-EE-TTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2482.5" y="424.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Woo-tW-8Tb">
+            <objects>
+                <tabBarController id="LMv-a9-bOt" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="uqF-j3-50Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="553-4q-PFu" kind="relationship" relationship="viewControllers" id="7Eu-dm-S9d"/>
+                        <segue destination="j6n-9m-JGO" kind="relationship" relationship="viewControllers" id="fhC-W4-gsk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbb-38-aNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4135" y="-488"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Contactus-icon" width="30" height="30"/>
+        <image name="Products-icon" width="30" height="30"/>
+        <image name="splash-icon" width="150" height="150"/>
+    </resources>
+</document>
