@@ -2,123 +2,112 @@
 //  ProductsViewController.swift
 //  GoodWatches
 //
-//  Created by Parth Bhatt on 17/04/17.
-//  Copyright © 2017 parthbhatt. All rights reserved.
+//  Created by Parth Bhatt on 18/04/17.
+//  Copyright © 2017 netweb. All rights reserved.
 //
 
 import UIKit
 
-let themeColor = UIColor(red: 0.5, green: 0.0, blue: 0.0, alpha: 1.0)
-
-
-class ProductsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
-{
+class ProductsViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var tblProducts: UITableView!
-    
-    fileprivate let productIdentifier = "productTableViewCell"
-    
+    @IBOutlet weak var collectionViewProducts: UICollectionView!
+    var brandName: String?
+    var dictionaryProducts = [String:[Product<NSObject>]]() // dictionaryProducts = [String:[Product<NSObject>]]() means NSMutableDictionary *dictionaryProducts = [[NSMutableDictionary alloc] init];
+                                                            // dictionaryProducts: [String:[Product<NSObject>]]? means NSMutableDictionary *dictionaryProducts = nil;
     var arrProducts: [Product<NSObject>]?
+    var numberOfItemsPerRow = 2;
     
-    var arrIndex:NSMutableArray = []
-    
-    //MARK: - View Life cycle methods
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Array of Products to be displayed
-        arrProducts = [Product(name: "Hublot", imageName: "hublot-logo", fullImageName: "hublot_watch"),
-                       Product(name: "Rolex", imageName: "rolex-logo", fullImageName: "rolex_watch"),
-                       Product(name: "Omega", imageName: "omega-logo", fullImageName: "omega_watch")];
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationItem.title = brandName;
         
+        dictionaryProducts = ["Hublot":[Product(modelnumber: "Hub#01", imageName: "hublot1", largeImageName: "hublot1"),
+                                        Product(modelnumber: "Hub#02", imageName: "hublot2", largeImageName: "hublot2"),
+                                        Product(modelnumber: "Hub#03", imageName: "hublot3", largeImageName: "hublot3"),
+                                        Product(modelnumber: "Hub#04", imageName: "hublot4", largeImageName: "hublot4"),
+                                        Product(modelnumber: "Hub#01", imageName: "hublot1", largeImageName: "hublot1"),
+                                        Product(modelnumber: "Hub#02", imageName: "hublot2", largeImageName: "hublot2"),
+                                        Product(modelnumber: "Hub#03", imageName: "hublot3", largeImageName: "hublot3"),
+                                        Product(modelnumber: "Hub#04", imageName: "hublot4", largeImageName: "hublot4")],
+                              "Rolex":[Product(modelnumber: "Rol#01", imageName: "rolex1", largeImageName: "rolex1"),
+                                       Product(modelnumber: "Rol#02", imageName: "rolex2", largeImageName: "rolex2"),
+                                       Product(modelnumber: "Rol#03", imageName: "rolex3", largeImageName: "rolex3"),
+                                       Product(modelnumber: "Rol#04", imageName: "rolex4", largeImageName: "rolex4")],
+                              "Omega":[Product(modelnumber: "Ome#01", imageName: "omega1", largeImageName: "omega1"),
+                                       Product(modelnumber: "Ome#02", imageName: "omega2", largeImageName: "omega2"),
+                                       Product(modelnumber: "Ome#03", imageName: "omega3", largeImageName: "omega3"),
+                                       Product(modelnumber: "Ome#04", imageName: "omega4", largeImageName: "omega4")]];
         
-        // Added index array to avoid animation of imageview every time while scrolling.
-        if let prodArray = arrProducts {
-            for item in prodArray {
-                print(item)
-                arrIndex.add(0)
-            }
+        if let brand = brandName, let arrayValue = dictionaryProducts[brand]  {
+            arrProducts = arrayValue;
+            print("\nProducts are \(arrayValue)");
+        }
+        else
+        {
+            print("values are nil")
         }
         
-        //Added title to top bar along with the bar tint color and title text attributes
-        self.navigationItem.title = "Watches"
-        self.navigationController?.navigationBar.barTintColor = themeColor;
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
-        //Added bar tint color and title & image tint color to bottom bar
-        self.tabBarController?.tabBar.barTintColor = UIColor.white
-        self.tabBarController?.tabBar.tintColor = themeColor
-        
-        //Reload table view.
-        tblProducts.dataSource = self
-        tblProducts.delegate = self
-        tblProducts.reloadData()
+        collectionViewProducts.delegate = self
+        collectionViewProducts.dataSource = self
+        collectionViewProducts.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = brandName
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-    //MARK: - Table View Datasource and Delegates
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
+    //MARK: - Collection View delegate & Datasource
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1;
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        if let productsArray = arrProducts
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let productArray = arrProducts
         {
-            return productsArray.count
+            return productArray.count;
         }
         return 0;
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier:productIdentifier, for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
         
         let product = arrProducts?[indexPath.row]
         
-        //Added code to show end to end separator.
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
-        
-        //Assigning product information to cell.
-        cell.textLabel?.text = product?.name
-        if let imageName = product?.imageName {
-            cell.imageView?.image = UIImage(named: imageName)
-        }
-        
-        animateImageIfNeeded(forCell: cell, atIndex: indexPath)
-        
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 60;
-    }
-    
-    //MARK: - Custom Metods
-    
-    //This method is used to animate the image the first time a cell is created at a particular indexPath
-    func animateImageIfNeeded(forCell cell: UITableViewCell, atIndex indexPath: IndexPath)
-    {
-        //Checks if cell is created for the first time at a given indexPath
-        if((arrIndex[indexPath.row] as? Int) == 0)
+        if let newProduct = product, let newImage = product?.imageName
         {
-            cell.imageView?.transform = CGAffineTransform(scaleX: 0, y: 0);
-            UIView.animate(withDuration: 2, animations: {
-                cell.imageView?.transform = CGAffineTransform.identity
-            })
-            arrIndex.replaceObject(at:indexPath.row, with: 1);
+            cell.lblProductModelNumber.text = newProduct.modelnumber;
+            cell.imgVProduct.image = UIImage(named: newImage)
         }
-    }    
+        return cell;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfItemsPerRow))
+        return CGSize(width: size, height: size)
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

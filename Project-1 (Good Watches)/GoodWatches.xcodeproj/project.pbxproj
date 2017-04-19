@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		DA2A02611EA4B40B00B1135A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A02601EA4B40B00B1135A /* AppDelegate.swift */; };
 		DA2A02641EA4B41D00B1135A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2A02621EA4B41D00B1135A /* Assets.xcassets */; };
-		DA2A02671EA4B44F00B1135A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A02661EA4B44F00B1135A /* Product.swift */; };
-		DA2A02691EA4B45B00B1135A /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A02681EA4B45B00B1135A /* ProductsViewController.swift */; };
+		DA2A02671EA4B44F00B1135A /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A02661EA4B44F00B1135A /* Brand.swift */; };
+		DA2A02691EA4B45B00B1135A /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A02681EA4B45B00B1135A /* BrandsViewController.swift */; };
 		DA2A026E1EA4B46A00B1135A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2A026A1EA4B46A00B1135A /* LaunchScreen.storyboard */; };
 		DA2A026F1EA4B46A00B1135A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2A026C1EA4B46A00B1135A /* Main.storyboard */; };
 		DA2A02711EA4C72000B1135A /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A02701EA4C72000B1135A /* ContactUsViewController.swift */; };
+		DA99ABCB1EA5D88D001D4106 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99ABCA1EA5D88D001D4106 /* ProductsViewController.swift */; };
+		DA99ABCE1EA5DE57001D4106 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99ABCD1EA5DE57001D4106 /* Product.swift */; };
+		DA99ABD11EA5EE0B001D4106 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99ABD01EA5EE0B001D4106 /* ProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +24,14 @@
 		DA2A02601EA4B40B00B1135A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GoodWatches/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		DA2A02621EA4B41D00B1135A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GoodWatches/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		DA2A02631EA4B41D00B1135A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GoodWatches/Info.plist; sourceTree = SOURCE_ROOT; };
-		DA2A02661EA4B44F00B1135A /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = GoodWatches/Model/Product.swift; sourceTree = SOURCE_ROOT; };
-		DA2A02681EA4B45B00B1135A /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsViewController.swift; path = GoodWatches/ViewControllers/ProductsViewController.swift; sourceTree = SOURCE_ROOT; };
+		DA2A02661EA4B44F00B1135A /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brand.swift; path = GoodWatches/Model/Brand.swift; sourceTree = SOURCE_ROOT; };
+		DA2A02681EA4B45B00B1135A /* BrandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandsViewController.swift; path = GoodWatches/ViewControllers/BrandsViewController.swift; sourceTree = SOURCE_ROOT; };
 		DA2A026B1EA4B46A00B1135A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GoodWatches/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		DA2A026D1EA4B46A00B1135A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GoodWatches/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		DA2A02701EA4C72000B1135A /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactUsViewController.swift; path = GoodWatches/ViewControllers/ContactUsViewController.swift; sourceTree = SOURCE_ROOT; };
+		DA99ABCA1EA5D88D001D4106 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsViewController.swift; path = GoodWatches/ViewControllers/ProductsViewController.swift; sourceTree = SOURCE_ROOT; };
+		DA99ABCD1EA5DE57001D4106 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = GoodWatches/Model/Product.swift; sourceTree = SOURCE_ROOT; };
+		DA99ABD01EA5EE0B001D4106 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCollectionViewCell.swift; path = GoodWatches/Cells/ProductCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +64,36 @@
 		DA2A02491EA49E2400B1135A /* GoodWatches */ = {
 			isa = PBXGroup;
 			children = (
+				DA99ABCF1EA5E045001D4106 /* Models */,
+				DA99ABCC1EA5D8B7001D4106 /* Controllers */,
 				DA2A026A1EA4B46A00B1135A /* LaunchScreen.storyboard */,
 				DA2A026C1EA4B46A00B1135A /* Main.storyboard */,
 				DA2A02601EA4B40B00B1135A /* AppDelegate.swift */,
-				DA2A02681EA4B45B00B1135A /* ProductsViewController.swift */,
-				DA2A02701EA4C72000B1135A /* ContactUsViewController.swift */,
-				DA2A02661EA4B44F00B1135A /* Product.swift */,
 				DA2A02621EA4B41D00B1135A /* Assets.xcassets */,
 				DA2A02631EA4B41D00B1135A /* Info.plist */,
+				DA99ABD01EA5EE0B001D4106 /* ProductCollectionViewCell.swift */,
 			);
 			name = GoodWatches;
 			path = GoodAsOldPhones;
+			sourceTree = "<group>";
+		};
+		DA99ABCC1EA5D8B7001D4106 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A02681EA4B45B00B1135A /* BrandsViewController.swift */,
+				DA99ABCA1EA5D88D001D4106 /* ProductsViewController.swift */,
+				DA2A02701EA4C72000B1135A /* ContactUsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DA99ABCF1EA5E045001D4106 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA99ABCD1EA5DE57001D4106 /* Product.swift */,
+				DA2A02661EA4B44F00B1135A /* Brand.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +170,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2A02611EA4B40B00B1135A /* AppDelegate.swift in Sources */,
-				DA2A02671EA4B44F00B1135A /* Product.swift in Sources */,
-				DA2A02691EA4B45B00B1135A /* ProductsViewController.swift in Sources */,
+				DA2A02671EA4B44F00B1135A /* Brand.swift in Sources */,
+				DA99ABD11EA5EE0B001D4106 /* ProductCollectionViewCell.swift in Sources */,
+				DA2A02691EA4B45B00B1135A /* BrandsViewController.swift in Sources */,
 				DA2A02711EA4C72000B1135A /* ContactUsViewController.swift in Sources */,
+				DA99ABCB1EA5D88D001D4106 /* ProductsViewController.swift in Sources */,
+				DA99ABCE1EA5DE57001D4106 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +343,7 @@
 				DA2A025B1EA49E2600B1135A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

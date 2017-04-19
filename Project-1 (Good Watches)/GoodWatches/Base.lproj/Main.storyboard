@@ -6,14 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Products-->
+        <!--Brands-->
         <scene sceneID="Y59-nI-Z72">
             <objects>
                 <navigationController id="553-4q-PFu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Products" image="Products-icon" id="xP1-w2-cuy"/>
+                    <tabBarItem key="tabBarItem" title="Brands" image="brands-icon" id="xP1-w2-cuy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rZ0-Xm-JfQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,12 +25,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tK-RR-GNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3265" y="-658"/>
+            <point key="canvasLocation" x="-3266" y="-861"/>
         </scene>
-        <!--Products View Controller-->
+        <!--Brands View Controller-->
         <scene sceneID="HzR-TW-MHL">
             <objects>
-                <viewController id="9Xu-1P-SQd" customClass="ProductsViewController" customModule="GoodWatches" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Xu-1P-SQd" customClass="BrandsViewController" customModule="GoodWatches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0VV-dP-Fwj"/>
                         <viewControllerLayoutGuide type="bottom" id="uSc-Qs-zeA"/>
@@ -42,13 +43,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productTableViewCell" id="4LJ-UI-OST">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="productTableViewCell" id="4LJ-UI-OST">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4LJ-UI-OST" id="ize-rU-vUM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="grP-7V-xbo" kind="show" identifier="showProducts" id="KMf-2d-UEN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -68,7 +72,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fff-sF-46a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2515" y="-1749"/>
+            <point key="canvasLocation" x="-2378" y="-861"/>
+        </scene>
+        <!--Products View Controller-->
+        <scene sceneID="DIo-eV-h3g">
+            <objects>
+                <viewController id="grP-7V-xbo" customClass="ProductsViewController" customModule="GoodWatches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zCm-Lg-3LG"/>
+                        <viewControllerLayoutGuide type="bottom" id="sZq-LW-YRw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FY9-br-3N2">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mpr-Ek-LzC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HqT-Vy-sgd">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCollectionViewCell" id="Ecb-9s-zvf" customClass="ProductCollectionViewCell" customModule="GoodWatches" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7fh-Vw-tBS">
+                                                    <rect key="frame" x="25" y="11" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7fh-Vw-tBS" secondAttribute="height" multiplier="1:1" id="2dj-j2-jND"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgW-Xf-v1M">
+                                                    <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="lpr-NQ-kRD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="7fh-Vw-tBS" firstAttribute="leading" secondItem="Ecb-9s-zvf" secondAttribute="leading" constant="25" id="C0L-Us-xa1"/>
+                                            <constraint firstItem="7fh-Vw-tBS" firstAttribute="centerY" secondItem="Ecb-9s-zvf" secondAttribute="centerY" constant="-14" id="CoG-sj-36a"/>
+                                            <constraint firstAttribute="trailing" secondItem="SgW-Xf-v1M" secondAttribute="trailing" constant="8" id="DBh-sf-Eif"/>
+                                            <constraint firstItem="SgW-Xf-v1M" firstAttribute="leading" secondItem="Ecb-9s-zvf" secondAttribute="leading" constant="8" id="QCK-dt-O8s"/>
+                                            <constraint firstAttribute="trailing" secondItem="7fh-Vw-tBS" secondAttribute="trailing" constant="25" id="W5f-Hx-Dlf"/>
+                                            <constraint firstAttribute="bottom" secondItem="SgW-Xf-v1M" secondAttribute="bottom" constant="8" id="zHM-PM-jtJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imgVProduct" destination="7fh-Vw-tBS" id="GFS-9E-PBl"/>
+                                            <outlet property="lblProductModelNumber" destination="SgW-Xf-v1M" id="ajp-QC-2ju"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="grP-7V-xbo" id="Ej8-qZ-Px3"/>
+                                    <outlet property="delegate" destination="grP-7V-xbo" id="zxp-8u-5Rb"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mpr-Ek-LzC" firstAttribute="leading" secondItem="FY9-br-3N2" secondAttribute="leading" id="5x5-iN-SEc"/>
+                            <constraint firstItem="sZq-LW-YRw" firstAttribute="top" secondItem="Mpr-Ek-LzC" secondAttribute="bottom" id="FaZ-4M-Pw9"/>
+                            <constraint firstAttribute="trailing" secondItem="Mpr-Ek-LzC" secondAttribute="trailing" id="HZf-eW-ygO"/>
+                            <constraint firstItem="Mpr-Ek-LzC" firstAttribute="top" secondItem="zCm-Lg-3LG" secondAttribute="bottom" id="Nwi-Wv-6Kh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fTz-Kt-o3E"/>
+                    <connections>
+                        <outlet property="collectionViewProducts" destination="Mpr-Ek-LzC" id="odD-gj-9ku"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ORU-4W-E9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1671.2" y="-861.3193403298352"/>
         </scene>
         <!--Contact Us-->
         <scene sceneID="59y-gK-yyd">
@@ -85,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBe-jm-vfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3282" y="56"/>
+            <point key="canvasLocation" x="-3266" y="-106"/>
         </scene>
         <!--Contact Us View Controller-->
         <scene sceneID="j21-QQ-5qs">
@@ -129,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xt-EE-TTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2482.5" y="424.5"/>
+            <point key="canvasLocation" x="-2449" y="-107"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Woo-tW-8Tb">
@@ -153,7 +240,7 @@
     </scenes>
     <resources>
         <image name="Contactus-icon" width="30" height="30"/>
-        <image name="Products-icon" width="30" height="30"/>
+        <image name="brands-icon" width="30" height="30"/>
         <image name="splash-icon" width="150" height="150"/>
     </resources>
 </document>

@@ -2,14 +2,14 @@
 //  Product.swift
 //  GoodWatches
 //
-//  Created by Parth Bhatt on 17/04/17.
-//  Copyright © 2017 parthbhatt. All rights reserved.
+//  Created by Parth Bhatt on 18/04/17.
+//  Copyright © 2017 netweb. All rights reserved.
 //
 
 import UIKit
 
 struct Product<NSObject> {
-    var name: String?
+    var modelnumber: String?
     var imageName: String?
-    var fullImageName: String?
+    var largeImageName: String?
 }
